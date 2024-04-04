@@ -5,7 +5,11 @@ import { MongoClient } from 'mongodb';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://deploy-mern.vercel.app"],
+  methods: ["POST", "GET"],
+  credentails: true
+}));
 
 const uri = 'mongodb+srv://root:root@cluster0.n03hxot.mongodb.net/';
 const client = new MongoClient(uri);
