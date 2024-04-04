@@ -101,13 +101,13 @@ const Dashboard = () => {
           <table className="table-auto w-full">
             <thead>
               <tr>
-                {columns.map(column => (
+                {columns?.map(column => (
                   <th key={column.key} className="px-5 py-3 text-md tracking-widest uppercase">{column.label}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {frequency === 'Daily' && dailyData.map((item) => (
+              {frequency === 'Daily' && dailyData?.map((item) => (
                 <motion.tr
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -115,17 +115,17 @@ const Dashboard = () => {
                   transition={{ duration: 0.5 }}
                   className="bg-white shadow-md hover:shadow-lg"
                 >
-                  {columns.map(column => (
+                  {columns?.map(column => (
                     <td key={column.key} className="border px-6 py-4 text-sm">{item[column.key]}</td>
                   ))}
                 </motion.tr>
               ))}
-              {frequency !== 'Daily' && Object.entries(frequency === 'Weekly' ? weeklyData : frequency === 'Monthly' ? monthlyData : yearlyData).map(([period, items]) => (
+              {frequency !== 'Daily' && Object.entries(frequency === 'Weekly' ? weeklyData : frequency === 'Monthly' ? monthlyData : yearlyData)?.map(([period, items]) => (
                 <React.Fragment key={period}>
                   <tr className="bg-white text-black font-bold text-md uppercase mt-4 mb-2">
                     <td colSpan={columns.length}>{frequency === 'Weekly' ? `Week ${period}` : frequency === 'Monthly' ? `Month ${period}` : `Year ${period}`}</td>
                   </tr>
-                  {items.map((item) => (
+                  {items?.map((item) => (
                     <motion.tr
                       key={item.id}
                       initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ const Dashboard = () => {
                       transition={{ duration: 0.5 }}
                       className="bg-white shadow-md hover:shadow-lg"
                     >
-                      {columns.map(column => (
+                      {columns?.map(column => (
                         <td key={column.key} className="border px-6 py-4 text-sm">{item[column.key]}</td>
                       ))}
                     </motion.tr>
