@@ -31,7 +31,7 @@ const Dashboard = () => {
         const startDateISOString = timeFrame?.startDate?.toISOString();
         const endDateISOString = timeFrame?.endDate?.toISOString();
     
-        const response = await fetch(`http://localhost:5000/api/data?frequency=${frequency}&startDate=${startDateISOString}&endDate=${endDateISOString}`);
+        const response = await fetch(`https://deploy-mern-alpha.vercel.app/api/data?frequency=${frequency}&startDate=${startDateISOString}&endDate=${endDateISOString}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
